@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# Ensure the dist directory exists
+mkdir -p dist
+
+# The rest of your script...
 echo "### Create helloworld.war file"
-echo
-echo "Calling jar"
-echo
-jar -cvf helloworld.war *.jsp WEB-INF
-echo
-echo "Moving helloworld.war to dist/ with option --FORCE"
-mv -f helloworld.war dist/
-echo
+
+# Calling jar to create the WAR file
+jar -cvf helloworld.war index.jsp WEB-INF/web.xml
+
+# Move the WAR file to the dist directory
+mv helloworld.war dist/ --force
+
 echo "Done"
